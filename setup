@@ -1,24 +1,30 @@
 #!/bin/bash
 
+#exit on error
+set -e
+
+ARCH_DIR="$(pwd)"
+
 sudo pacman -Syu --noconfirm
 
 if ! command -v paru &> /dev/null; then
-  echo "Installing paru AUR helper..."
-  sudo pacman -S --needed git base-devel --noconfirm
-  if [[ ! -d "paru" ]]; then
-    echo "Cloning paru repository..."
-  else
-    echo "paru directory already exists, removing it..."
+    echo "Installing paru AUR helper..."
+    sudo pacman -S --needed git base-devel --noconfirm
+
+    [[ -d "paru" ]] && rm -rf paru
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si --noconfirm
+    cd ..
     rm -rf paru
-  fi
-
-  git clone https://aur.archlinux.org/paru.git
-
-  cd paru
-  echo "building paru...."
-  makepkg -si --noconfirm
-  cd ..
-  rm -rf paru
 else
-  echo "paru is already installed"
+    echo "paru is already installed"
 fi
+
+
+for script in "$ARCH_DIR"/scripts/*.sh; do
+    [[ -f "$script" ]] || continue
+    echo "Running $script..."
+    source "$script"
+done
+

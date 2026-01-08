@@ -1,6 +1,5 @@
 #!/bin/bash
 
-ARCH_DIR="$HOME/archsetup"
 
 #Limine
 if command -v limine &>/dev/null; then
@@ -95,6 +94,11 @@ sudo systemctl enable sddm.service
 #Plymouth for pw
 sudo cp -r "$HOME/archsetup/defaults/plymouth/" /usr/share/plymouth/themes/arch/
 sudo plymouth-set-default-theme arch
+if command -v limine-mkinitcpio &>/dev/null; then
+  sudo limine-mkinitcpio
+else
+  sudo mkinitcpio -P
+fi
 
 #Snapper
 sudo snapper -c root list &>/dev/null || sudo snapper -c root create-config /
