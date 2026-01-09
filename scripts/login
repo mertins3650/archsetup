@@ -93,6 +93,7 @@ fi
 sudo systemctl enable sddm.service
 
 #Plymouth for pw
+mkdir -p /usr/share/plymouth/themes/arch/
 sudo cp -r "$HOME/archsetup/defaults/plymouth/" /usr/share/plymouth/themes/arch/
 sudo plymouth-set-default-theme arch
 if command -v limine-mkinitcpio &>/dev/null; then
