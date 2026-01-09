@@ -5,7 +5,7 @@ set -e
 
 ARCH_DIR="$(pwd)"
 
-source "$ARCH_DIR"/first-run
+source "$ARCH_DIR"/first_run
 
 sudo pacman -Syu --noconfirm
 
