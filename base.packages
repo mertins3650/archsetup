@@ -13,6 +13,9 @@ gnome-keyring
 gnome-themes-extra
 grim
 gum
+fcitx5
+fcitx5-gtk
+fcitx5-qt
 hypridle
 lazydocker
 lazygit
