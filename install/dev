@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo -e "Installing Node.js...\n"
+mise use --global node@lts
+
+echo -e "Installing Bun...\n"
+mise use --global bun@latest
+
+echo -e "Installing Go...\n"
+mise use --global go@latest
+
+echo -e "Installing Rust...\n"
+yay -S --noconfirm --needed rust

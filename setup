@@ -7,9 +7,10 @@ ARCH_DIR="$(pwd)"
 
 sudo pacman -Syu --noconfirm
 
+sudo pacman -S base-devel gum --noconfirm --needed
+
 if ! command -v paru &> /dev/null; then
     echo "Installing paru AUR helper..."
-    sudo pacman -S --needed git base-devel --noconfirm
 
     [[ -d "paru" ]] && rm -rf paru
     git clone https://aur.archlinux.org/paru.git
@@ -21,10 +22,32 @@ else
     echo "paru is already installed"
 fi
 
-
-for script in "$ARCH_DIR"/scripts/*.sh; do
+for script in "$ARCH_DIR"/scripts/*; do
     [[ -f "$script" ]] || continue
     echo "Running $script..."
     source "$script"
 done
 
+mapfile -t packages < <(grep -v '^#' "$ARCH_DIR"/base.packages)
+sudo pacman -S --noconfirm --needed "${packages[@]}"
+
+for install in "$ARCH_DIR"/install/*; do
+    [[ -f "$install" ]] || continue
+    echo "Running $install..."
+    source "$install"
+done
+
+for post in "$ARCH_DIR"/post/*; do
+    [[ -f "$post" ]] || continue
+    source "$post"
+done
+
+# Finish
+choice=$(gum choose --limit 2 --height 4 --header "Setup complete. Reboot now?" "Yes" "No")
+
+if [ "$choice" = "Yes" ]; then
+    echo "Rebooting..."
+    sudo shutdown -r now
+else
+    echo "Okay, continue with whatever you want."
+fi
