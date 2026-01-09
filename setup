@@ -37,6 +37,8 @@ for install in "$ARCH_DIR"/install/*; do
     source "$install"
 done
 
+soruce ./dotfiles
+
 for post in "$ARCH_DIR"/post/*; do
     [[ -f "$post" ]] || continue
     source "$post"

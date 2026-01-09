@@ -1,0 +1,31 @@
+#!/bin/bash
+
+ORIGINAL_DIR=$(pwd)
+REPO_URL="https://github.com/mertins3650/dotfiles"
+REPO_NAME="dotfiles"
+
+cd "$HOME" || exit 1
+
+# Check if stow is installed
+if ! command -v stow &> /dev/null; then
+    echo "Please install 'stow' first."
+    exit 1
+fi
+
+# Clone repo if it doesn't exist
+if [ ! -d "$REPO_NAME" ]; then
+    git clone "$REPO_URL" || { echo "Failed to clone repository"; exit 1; }
+else
+    echo "Repository '$REPO_NAME' already exists. Skipping clone."
+fi
+
+# Stow each directory
+cd "$REPO_NAME" || exit 1
+for dir in */; do
+    dir=${dir%/}
+    echo "Stowing $dir..."
+    stow --target="$HOME" "$dir"
+done
+
+echo "Dotfiles installed."
+cd "$ORIGINAL_DIR" || exit 1
