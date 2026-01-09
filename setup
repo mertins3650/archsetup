@@ -57,7 +57,10 @@ for post in "$ARCH_DIR"/post/*; do
 done
 
 # Finish
-choice=$(gum choose --limit 2 --height 4 --header "Setup complete. Reboot now?" "Yes" "No")
+choice=$(gum choose --limit 1 --height 4 --header "Setup complete. Reboot now?" "Yes" "No")
+
+# Trim whitespace just in case
+choice=$(echo "$choice" | tr -d '\n' | tr -d '\r')
 
 if [ "$choice" = "Yes" ]; then
     echo "Rebooting..."
@@ -65,3 +68,4 @@ if [ "$choice" = "Yes" ]; then
 else
     echo "Okay, continue with whatever you want."
 fi
+
