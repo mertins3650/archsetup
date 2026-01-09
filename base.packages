@@ -40,11 +40,11 @@ linux-firmware
 linux-headers
 llvm
 lmstudio
-lurarocks
+hererocks
 mako
 mise
 neovim
-notify-send
+libnotify
 oh-my-zsh-git
 opencode-bin
 pipewire
