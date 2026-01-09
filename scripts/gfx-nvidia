@@ -1,5 +1,5 @@
 #!/bin/bash
-NVIDIA="$(lspci | grep -i 'nvidia')"
+NVIDIA="$(lspci | grep -i 'nvidia' || true)"
 
 if [ -n "$NVIDIA" ]; then
   # Check which kernel is installed and set appropriate headers package
