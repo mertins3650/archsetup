@@ -32,7 +32,9 @@ EOF
     exit 1
   fi
 
-  CMDLINE=$(grep "^[[:space:]]*cmdline:" "$limine_config" | head -1 | sed 's/^[[:space:]]*cmdline:[[:space:]]*//')
+  # CMDLINE=$(grep "^[[:space:]]*cmdline:" "$limine_config" | head -1 | sed 's/^[[:space:]]*cmdline:[[:space:]]*//')
+  CMDLINE=$(grep -i '^\s*cmdline:' "$limine_config" | head -1 | sed 's/^[[:space:]]*cmdline:[[:space:]]*//')
+
 
   sudo cp $ARCH_DIR/defaults/limine/default.conf /etc/default/limine
   sudo sed -i "s|@@CMDLINE@@|$CMDLINE|g" /etc/default/limine
