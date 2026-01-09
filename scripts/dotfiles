@@ -8,8 +8,7 @@ cd "$HOME" || exit 1
 
 # Check if stow is installed
 if ! command -v stow &> /dev/null; then
-    echo "Please install 'stow' first."
-    exit 1
+    paru -S --noconfirm --needed stow
 fi
 
 # Clone repo if it doesn't exist
