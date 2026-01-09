@@ -1,4 +1,5 @@
 #!/bin/zsh
+paru -S --noconfirm --needed zsh
 ZSH_PATH=$(which zsh)
 
 # Check if zsh is already the default shell
