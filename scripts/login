@@ -76,6 +76,7 @@ chmod 600 "$KEYRING_FILE"
 chmod 644 "$DEFAULT_FILE"
 
 #Seamless login
+paru -S --noconfirm --needed sddm
 sudo mkdir -p /etc/sddm.conf.d
 
 if [ ! -f /etc/sddm.conf.d/autologin.conf ]; then
