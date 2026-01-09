@@ -5,6 +5,8 @@ set -e
 
 ARCH_DIR="$(pwd)"
 
+source "$ARCH_DIR"/first-run
+
 sudo pacman -Syu --noconfirm
 
 sudo pacman -S base-devel gum --noconfirm --needed
