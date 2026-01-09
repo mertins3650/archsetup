@@ -2,7 +2,7 @@
 
 # Install PostgreSQL
 echo "Installing PostgreSQL..."
-yay -S --noconfirm --needed postgresql
+paru -S --noconfirm --needed postgresql
 
 # Check if data directory already exists and is initialized
 if [ ! -d "/var/lib/postgres/data" ] || [ -z "$(ls -A /var/lib/postgres/data 2>/dev/null)" ]; then
