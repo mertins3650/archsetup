@@ -14,5 +14,5 @@ if ! grep -q "^$ZSH_PATH$" /etc/shells; then
 fi
 
 # Change the default shell to zsh
-chsh -s "$ZSH_PATH"
+sudo chsh -s "$ZSH_PATH"
 
