@@ -29,7 +29,7 @@ for script in "$ARCH_DIR"/scripts/*; do
 done
 
 mapfile -t packages < <(grep -v '^#' "$ARCH_DIR"/base.packages)
-paru -S --noconfirm --needed "${packages[@]}"
+paru -Syu --noconfirm --needed "${packages[@]}"
 
 for install in "$ARCH_DIR"/install/*; do
     [[ -f "$install" ]] || continue
