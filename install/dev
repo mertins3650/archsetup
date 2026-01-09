@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo -e "Installing Node.js...\n"
-mise use --global node@lts
-
 echo -e "Installing Bun...\n"
 mise use --global bun@latest
 
