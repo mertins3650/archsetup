@@ -1,12 +1,9 @@
-mlocate
-pacman-contrib
 bitwarden
 brightnessctl
 chromium
 docker
 docker-buildx
 docker-compose
-nautilus
 eza
 fontconfig
 fzf
@@ -16,6 +13,7 @@ gnome-keyring
 gnome-themes-extra
 grim
 gum
+hererocks
 hypridle
 hyprland
 hyprland-guiutils
@@ -30,6 +28,7 @@ lazydocker
 lazydocker
 lazygit
 lazygit
+libnotify
 limine
 limine-mkinitcpio-hook
 limine-snapper-sync
@@ -37,12 +36,14 @@ linux
 linux-firmware
 linux-headers
 llvm
-hererocks
 mako
 mise
+mlocate
+nautilus
 neovim
-libnotify
 oh-my-zsh-git
+pacman-contrib
+paru
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -78,7 +79,8 @@ wofi
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 xdg-terminal-exec
+yaru-icon-theme
+yazi
 zoxide
 zsh
 zsh-completions
-yazi
