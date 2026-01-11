@@ -9,12 +9,12 @@ sed -i '
   s|^[[:space:]]*#\s*\[\s*multilib\s*\]|[multilib]|
 
   # Uncomment Include ONLY between [multilib] and next section
-  /^\[multilib\]/,/^\[/{ 
+  /^\[multilib\]/,/^\[/{
     s|^[[:space:]]*#\s*Include\s*=\s*/etc/pacman.d/mirrorlist|Include = /etc/pacman.d/mirrorlist|
   }
 
   # Comment Include lines that belong to commented sections
-  /^[[:space:]]*#\s*\[/,/^\[/{ 
+  /^[[:space:]]*#\s*\[/,/^\[/{
     s|^[[:space:]]*Include\s*=\s*/etc/pacman.d/mirrorlist|#Include = /etc/pacman.d/mirrorlist|
   }
 ' "$PACMAN_CONF"
