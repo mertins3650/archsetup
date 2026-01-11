@@ -2,6 +2,13 @@
 mkdir -p ~/.local/state/archy
 touch ~/.local/state/archy/first-run.mode
 
+PACMAN_CONF="/etc/pacman.conf"
+
+sed -i \
+  -e 's|^[[:space:]]*#\s*\[\s*multilib\s*\]|[multilib]|' \
+  -e 's|^[[:space:]]*#\s*Include\s*=\s*/etc/pacman.d/mirrorlist|Include = /etc/pacman.d/mirrorlist|' \
+  "$PACMAN_CONF"
+
 # Setup sudo-less access for first-run
 sudo tee /etc/sudoers.d/first-run >/dev/null <<EOF
 Cmnd_Alias FIRST_RUN_CLEANUP = /bin/rm -f /etc/sudoers.d/first-run
