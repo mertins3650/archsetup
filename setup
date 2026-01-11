@@ -5,9 +5,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 ARCH_DIR="$(pwd)"
-if [[ $EUID -ne 0 ]]; then
-    exec sudo bash "$0" "$@"
-fi
+
 source "$ARCH_DIR"/first_run
 
 sudo pacman -Syu --noconfirm

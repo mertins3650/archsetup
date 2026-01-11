@@ -4,7 +4,7 @@ touch ~/.local/state/archy/first-run.mode
 
 PACMAN_CONF="/etc/pacman.conf"
 
-sed -i '
+sudo sed -i '
   # Uncomment [multilib] header
   s|^[[:space:]]*#\s*\[\s*multilib\s*\]|[multilib]|
 
