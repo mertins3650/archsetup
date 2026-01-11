@@ -6,7 +6,7 @@ IFS=$'\n\t'
 
 ARCH_DIR="$(pwd)"
 
-source "$ARCH_DIR"/first_run
+sudo source "$ARCH_DIR"/first_run
 
 sudo pacman -Syu --noconfirm
 
