@@ -1,14 +1,15 @@
 #!/bin/bash
+
 # First check that wireless-regdb is there
-if [ -f "/etc/conf.d/wireless-regdom" ]; then
+if [[ -f "/etc/conf.d/wireless-regdom" ]]; then
   unset WIRELESS_REGDOM
-  . /etc/conf.d/wireless-regdom
+  source /etc/conf.d/wireless-regdom
 fi
 
 # If the region is already set, we're done
-if [ ! -n "${WIRELESS_REGDOM}" ]; then
+if [[ -z "${WIRELESS_REGDOM:-}" ]]; then
   # Get the current timezone
-  if [ -e "/etc/localtime" ]; then
+  if [[ -e "/etc/localtime" ]]; then
     TIMEZONE=$(readlink -f /etc/localtime)
     TIMEZONE=${TIMEZONE#/usr/share/zoneinfo/}
 
@@ -16,7 +17,7 @@ if [ ! -n "${WIRELESS_REGDOM}" ]; then
     COUNTRY="${TIMEZONE%%/*}"
 
     # If we don't have a two letter country, get it from the timezone table
-    if [[ ! "$COUNTRY" =~ ^[A-Z]{2}$ ]] && [ -f "/usr/share/zoneinfo/zone.tab" ]; then
+    if [[ ! "$COUNTRY" =~ ^[A-Z]{2}$ ]] && [[ -f "/usr/share/zoneinfo/zone.tab" ]]; then
       COUNTRY=$(awk -v tz="$TIMEZONE" '$3 == tz {print $1; exit}' /usr/share/zoneinfo/zone.tab)
     fi
 
@@ -27,8 +28,16 @@ if [ ! -n "${WIRELESS_REGDOM}" ]; then
 
       # Also set it one off now
       if command -v iw &>/dev/null; then
-        sudo iw reg set ${COUNTRY}
+        sudo iw reg set "$COUNTRY"
       fi
+
+      echo "Wireless regulatory domain set to: $COUNTRY"
+    else
+      echo "Warning: Could not determine country code from timezone"
     fi
+  else
+    echo "Warning: /etc/localtime not found"
   fi
+else
+  echo "Wireless regulatory domain already set to: ${WIRELESS_REGDOM}"
 fi
