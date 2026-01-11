@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #exit on error
-set -e
+set -euo pipefail
+IFS=$'\n\t'
 
 ARCH_DIR="$(pwd)"
 
