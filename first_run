@@ -4,10 +4,20 @@ touch ~/.local/state/archy/first-run.mode
 
 PACMAN_CONF="/etc/pacman.conf"
 
-sed -i \
-  -e 's|^[[:space:]]*#\s*\[\s*multilib\s*\]|[multilib]|' \
-  -e 's|^[[:space:]]*#\s*Include\s*=\s*/etc/pacman.d/mirrorlist|Include = /etc/pacman.d/mirrorlist|' \
-  "$PACMAN_CONF"
+sed -i '
+  # Uncomment [multilib] header
+  s|^[[:space:]]*#\s*\[\s*multilib\s*\]|[multilib]|
+
+  # Uncomment Include ONLY between [multilib] and next section
+  /^\[multilib\]/,/^\[/{ 
+    s|^[[:space:]]*#\s*Include\s*=\s*/etc/pacman.d/mirrorlist|Include = /etc/pacman.d/mirrorlist|
+  }
+
+  # Comment Include lines that belong to commented sections
+  /^[[:space:]]*#\s*\[/,/^\[/{ 
+    s|^[[:space:]]*Include\s*=\s*/etc/pacman.d/mirrorlist|#Include = /etc/pacman.d/mirrorlist|
+  }
+' "$PACMAN_CONF"
 
 # Setup sudo-less access for first-run
 sudo tee /etc/sudoers.d/first-run >/dev/null <<EOF
