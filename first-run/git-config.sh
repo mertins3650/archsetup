@@ -8,7 +8,7 @@ if [ "$proceed" = "Yes" ]; then
     # Prompt for Git user name
     USER_NAME="$(gum input \
         --placeholder "Your full name" \
-        --prompt "Git user name: ")"
+        --prompt "Git username: ")"
 
     # Prompt for Git user email
     USER_EMAIL="$(gum input \
