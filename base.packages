@@ -1,5 +1,5 @@
+anythingllm-desktop-bin
 bitwarden
-snap-pac
 brightnessctl
 chromium
 docker
@@ -7,6 +7,7 @@ docker-buildx
 docker-compose
 eza
 fontconfig
+fuzzel
 fzf
 ghostty
 git
@@ -37,12 +38,14 @@ linux
 linux-firmware
 linux-headers
 llvm
+lmstudio
 mako
 mise
 mlocate
 nautilus
 neovim
 oh-my-zsh-git
+opencode-bin
 pacman-contrib
 paru
 pipewire
@@ -59,6 +62,7 @@ ripgrep
 satty
 sddm
 slurp
+snap-pac
 snapper
 stow
 swaybg
@@ -77,7 +81,6 @@ wiremix
 wl-clipboard
 woff2-font-awesome
 xdg-desktop-portal-gtk
-fuzzel
 xdg-desktop-portal-hyprland
 xdg-terminal-exec
 yaru-icon-theme
