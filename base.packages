@@ -1,4 +1,3 @@
-rofi
 bitwarden
 brightnessctl
 chromium
@@ -6,6 +5,9 @@ docker
 docker-buildx
 docker-compose
 eza
+fcitx5
+fcitx5-gtk
+fcitx5-qt
 fontconfig
 fzf
 ghostty
@@ -58,6 +60,7 @@ prettier
 qt5-wayland
 qt6-wayland
 ripgrep
+rofi
 satty
 sddm
 slurp
