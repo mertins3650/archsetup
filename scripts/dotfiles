@@ -21,6 +21,7 @@ fi
 # Stow each directory
 cd "$REPO_NAME" || exit 1
 for dir in */; do
+    [ -d "$dir" ] || continue
     dir=${dir%/}
     echo "Stowing $dir..."
     stow --target="$HOME" "$dir"
