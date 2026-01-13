@@ -1,5 +1,4 @@
 bitwarden
-github-cli
 brightnessctl
 chromium
 docker
@@ -13,6 +12,7 @@ fontconfig
 fzf
 ghostty
 git
+github-cli
 gnome-keyring
 gnome-themes-extra
 grim
