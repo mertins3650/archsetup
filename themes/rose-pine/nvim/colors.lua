@@ -1,4 +1,4 @@
-function ColorMyPencils(color)
+function ColorMyPencils()
 	vim.cmd.colorscheme("rose-pine-moon")
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
