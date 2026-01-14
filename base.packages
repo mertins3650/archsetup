@@ -1,4 +1,7 @@
 bitwarden
+python
+python-pip
+uv
 brightnessctl
 chromium
 docker
