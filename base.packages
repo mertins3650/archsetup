@@ -1,7 +1,4 @@
 bitwarden
-python
-python-pip
-uv
 brightnessctl
 chromium
 docker
@@ -61,6 +58,8 @@ polkit-gnome
 polkit-kde-agent
 postgresql-libs
 prettier
+python
+python-pip
 qt5-wayland
 qt6-wayland
 ripgrep
@@ -76,10 +75,13 @@ swayosd
 tailscale
 tldr
 tmux
+tree-sitter
+tree-sitter-cli
 ttf-cascadia-mono-nerd
 ufw
 ufw-docker
 unzip
+uv
 uwsm
 waybar
 wayfreeze
