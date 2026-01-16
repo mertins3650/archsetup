@@ -1,8 +1,8 @@
-crush-bin
 amdgpu_top
 bitwarden
 brightnessctl
 chromium
+crush-bin
 docker
 docker-buildx
 docker-compose
