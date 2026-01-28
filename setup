@@ -46,12 +46,12 @@ fi
 echo "mkinitcpio hooks disabled"
 
 # General packages
-mapfile -t packages < <(grep -v '^#' "$ARCH_DIR"/base.packages)
+mapfile -t packages < <(grep -v '^#' "$ARCH_DIR"/packages/base.packages)
 paru -Syu --noconfirm --needed "${packages[@]}"
 
 # Host specific packages
-if [[ -f "$ARCH_DIR/$HOSTNAME.packages" ]]; then
-    mapfile -t host_packages < <(grep -v '^#' "$ARCH_DIR"/"$HOSTNAME".packages)
+if [[ -f "$ARCH_DIR/packages/$HOSTNAME.packages" ]]; then
+    mapfile -t host_packages < <(grep -v '^#' "$ARCH_DIR"/packages/"$HOSTNAME".packages)
     paru -Syu --noconfirm --needed "${host_packages[@]}"
 fi
 
