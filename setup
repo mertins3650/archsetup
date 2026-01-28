@@ -5,6 +5,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 ARCH_DIR="$(pwd)"
+HOSTNAME=$(uname -n)
 
 source "$ARCH_DIR"/first_run
 
@@ -44,9 +45,15 @@ fi
 
 echo "mkinitcpio hooks disabled"
 
-
+# General packages
 mapfile -t packages < <(grep -v '^#' "$ARCH_DIR"/base.packages)
 paru -Syu --noconfirm --needed "${packages[@]}"
+
+# Host specific packages
+if [[ -f "$ARCH_DIR/$HOSTNAME.packages" ]]; then
+    mapfile -t host_packages < <(grep -v '^#' "$ARCH_DIR"/"$HOSTNAME".packages)
+    paru -Syu --noconfirm --needed "${host_packages[@]}"
+fi
 
 for install in "$ARCH_DIR"/install/*; do
     [[ -f "$install" ]] || continue
