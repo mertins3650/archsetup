@@ -1,9 +1,6 @@
 1password
 1password-cli
 bitwarden
-sqlite
-mullvad-vpn-bin
-lact
 brightnessctl
 chromium
 crush-bin
@@ -34,6 +31,7 @@ impala
 iwd
 jq
 kvantum-qt5
+lact
 lazydocker
 lazydocker
 lazygit
@@ -50,10 +48,12 @@ lmstudio
 mako
 mise
 mlocate
+mullvad-vpn-bin
 nautilus
 neovim
 oh-my-zsh-git
 opencode-bin
+orca-slicer-bin
 pacman-contrib
 paru
 pipewire
@@ -74,6 +74,7 @@ satty
 sddm
 slurp
 snapper
+sqlite
 steam
 stow
 swaybg
