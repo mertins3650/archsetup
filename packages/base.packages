@@ -1,5 +1,4 @@
 1password
-llama.cpp-vulkan
 1password-cli
 bitwarden
 brightnessctl
@@ -43,6 +42,7 @@ limine-snapper-sync
 linux
 linux-firmware
 linux-headers
+llama.cpp-vulkan
 llvm
 mako
 mise
