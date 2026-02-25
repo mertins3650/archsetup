@@ -42,7 +42,6 @@ limine-snapper-sync
 linux
 linux-firmware
 linux-headers
-llama.cpp-vulkan
 llvm
 mako
 mise
